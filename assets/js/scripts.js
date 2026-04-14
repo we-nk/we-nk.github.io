@@ -120,21 +120,19 @@ if (menuTrigger && menuContainer) {
 
   var slideCount = document.querySelectorAll('.product-swiper .swiper-slide').length;
   var swiper = new Swiper('.product-swiper', {
-    effect: 'coverflow',
+    effect: 'slide',
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 'auto',
+    slidesPerView: 1,
+    spaceBetween: 24,
     loop: slideCount >= 3,
     autoplay: {
-      delay: 5000,
+      delay: 6000,
       disableOnInteraction: true
     },
-    coverflowEffect: {
-      rotate: 30,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true
+    breakpoints: {
+      768: { slidesPerView: 1.15, spaceBetween: 32 },
+      1024: { slidesPerView: 1.3, spaceBetween: 40 }
     },
     pagination: {
       el: '.swiper-pagination',
