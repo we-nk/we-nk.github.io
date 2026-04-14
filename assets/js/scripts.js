@@ -123,8 +123,8 @@ if (menuTrigger && menuContainer) {
     effect: 'slide',
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 1.6,
-    spaceBetween: 24,
+    slidesPerView: 1.3,
+    spaceBetween: 0,
     loop: true,
     autoplay: {
       delay: 6000,
