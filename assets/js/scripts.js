@@ -123,16 +123,13 @@ if (menuTrigger && menuContainer) {
     effect: 'slide',
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 1,
+    slidesPerView: 1.6,
     spaceBetween: 24,
-    loop: slideCount >= 3,
+    loop: true,
     autoplay: {
       delay: 6000,
-      disableOnInteraction: true
-    },
-    breakpoints: {
-      768: { slidesPerView: 1.15, spaceBetween: 32 },
-      1024: { slidesPerView: 1.3, spaceBetween: 40 }
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
     },
     pagination: {
       el: '.swiper-pagination',
@@ -144,20 +141,25 @@ if (menuTrigger && menuContainer) {
     }
   });
 
-  // Lock swiper on video slides, unlock on image slides
-  function checkVideoSlide() {
-    var activeSlide = swiper.slides[swiper.activeIndex];
-    if (activeSlide && activeSlide.querySelector('.video-wrapper')) {
-      swiper.autoplay.stop();
-      swiper.allowTouchMove = false;
-    } else {
-      swiper.allowTouchMove = true;
-      swiper.autoplay.start();
-    }
-  }
+  // Video slides: autoplay continues unless user clicks to play
+  var videoPlaying = false;
 
-  swiper.on('slideChangeTransitionEnd', checkVideoSlide);
-  checkVideoSlide();
+  // Detect clicks on video slides (user started watching)
+  document.querySelectorAll('.product-swiper .video-wrapper').forEach(function (vw) {
+    vw.addEventListener('click', function () {
+      videoPlaying = true;
+      swiper.autoplay.stop();
+    });
+  });
+
+  // On slide change: resume autoplay (user moved away from video)
+  swiper.on('slideChangeTransitionEnd', function () {
+    videoPlaying = false;
+    swiper.autoplay.start();
+  });
+
+  // Ensure autoplay starts on init (iframe can steal focus)
+  swiper.autoplay.start();
 })();
 
 // Dark mode toggle
