@@ -4,27 +4,37 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NK Agent | NK Corporation</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title>NK AI Shadow Finder | NK Corporation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#1B2838">
   <meta name="format-detection" content="telephone=no">
   <link rel="icon" type="image/svg+xml" href="/images/favicon.png">
   <!-- Pretendard Font CDN -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" as="style" crossorigin="anonymous" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" crossorigin="anonymous" integrity="sha384-9kDDKx/5+oRQIb/Ce7grsjaS0AWcNd9aPYY7ubOmUBUO3GovHz5BO0RliSAPq2S/" href="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.css">
+  <link rel="stylesheet" crossorigin="anonymous" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
   <link href="/assets/css/style.css" rel="stylesheet">
 
   <meta name="description" content="AI 기반 사이버보안 평가 대응 솔루션 — IT 자산 전수 진단 및 Attack Surface Management" />
-  <meta property="og:title" content="NK Agent"/>
+  <meta property="og:title" content="NK AI Shadow Finder"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content=""/>
+  <meta property="og:url" content="https://we-nk.com/nk-ai/"/>
   
   <meta property="og:description" content="AI 기반 사이버보안 평가 대응 솔루션 — IT 자산 전수 진단 및 Attack Surface Management"/>
   <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:site" content=""/>
-  <meta name="twitter:creator" content=""/>
+  
+  
 
 </head>
 
@@ -89,7 +99,7 @@
     
     
     <li class="active">
-      <a href="/nk-agent/">제품 소개</a>
+      <a href="/nk-ai/">제품 소개</a>
       
     </li>
     
@@ -175,7 +185,7 @@
     
     
     <li class="active">
-      <a href="/nk-agent/">제품 소개</a>
+      <a href="/nk-ai/">제품 소개</a>
       
     </li>
     
@@ -210,7 +220,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
         <span class="product-badge">AI-Powered Cybersecurity</span>
-        <h1>NK Agent</h1>
+        <h1>NK AI Shadow Finder</h1>
         <p>사이버보안평가 대응 AI 솔루션 — 조직 내 모든 IT 자산을 자동 식별하고,<br/>AI 기반 진단으로 보안 사각지대를 제거합니다.</p>
       </div>
     </div>
@@ -220,7 +230,7 @@
   <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
     <div class="section-heading" data-aos="fade-up" id="관리-대상-it-자산">
       <h2>관리 대상 IT 자산</h2>
-      <p>IP 주소를 보유한 모든 기기와 비식별 자산까지,<br/>NK Agent가 빠짐없이 탐지합니다</p>
+      <p>IP 주소를 보유한 모든 기기와 비식별 자산까지,<br/>NK AI Shadow Finder가 빠짐없이 탐지합니다</p>
     </div>
     <div class="row justify-content-center">
       
@@ -334,7 +344,7 @@
   <div class="container pt-6 pt-md-10">
     <div class="section-heading" data-aos="fade-up" id="제품-화면">
       <h2>제품 화면</h2>
-      <p>NK Agent 대시보드 및 진단 결과 화면</p>
+      <p>NK AI Shadow Finder 대시보드 및 진단 결과 화면</p>
     </div>
   </div>
   <div class="gallery-carousel">
@@ -345,7 +355,7 @@
           <div class="gallery-slide">
             <div class="slide-inner">
               
-              <img src="/images/products/nk-agent/dashboard.jpg" alt="실시간 보안 모니터링 대시보드" loading="lazy">
+              <img src="/images/products/nk-ai/dashboard.jpg" alt="실시간 보안 모니터링 대시보드" loading="lazy">
               
             </div>
           </div>
@@ -356,7 +366,7 @@
           <div class="gallery-slide">
             <div class="slide-inner">
               
-              <img src="/images/products/nk-agent/report.jpeg" alt="AI 기반 취약점 진단 결과 리포트" loading="lazy">
+              <img src="/images/products/nk-ai/report.jpeg" alt="AI 기반 취약점 진단 결과 리포트" loading="lazy">
               
             </div>
           </div>
@@ -368,19 +378,19 @@
             <div class="slide-inner">
               
               <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/YtmIqKG5d2g?enablejsapi=1&rel=0" title="NK Agent 제품 소개 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/YtmIqKG5d2g?enablejsapi=1&rel=0" title="NK AI Shadow Finder 제품 소개 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
               
             </div>
           </div>
-          <p class="gallery-caption">NK Agent 제품 소개 영상</p>
+          <p class="gallery-caption">NK AI Shadow Finder 제품 소개 영상</p>
         </div>
         
         <div class="swiper-slide">
           <div class="gallery-slide">
             <div class="slide-inner">
               
-              <img src="/images/products/nk-agent/asset.jpeg" alt="IT 자산 스캔 결과 화면" loading="lazy">
+              <img src="/images/products/nk-ai/asset.jpeg" alt="IT 자산 스캔 결과 화면" loading="lazy">
               
             </div>
           </div>
@@ -400,7 +410,7 @@
   <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
     <div class="section-heading section-heading-light" data-aos="fade-up" id="도입-효과">
       <h2>도입 효과</h2>
-      <p>NK Agent 도입으로 측정된 실제 성과 지표</p>
+      <p>NK AI Shadow Finder 도입으로 측정된 실제 성과 지표</p>
     </div>
     <div class="row justify-content-center">
       
@@ -439,7 +449,7 @@
 <div class="strip strip-cta">
   <div class="container pt-6 pb-6 pt-md-8 pb-md-8">
     <div class="cta-block" data-aos="fade-up">
-      <h2>NK Agent 도입 상담</h2>
+      <h2>NK AI Shadow Finder 도입 상담</h2>
       <p>조직의 보안 수준을 한 단계 높여 보세요. 맞춤 컨설팅을 제공합니다.</p>
       <a class="button button-primary" href="/contact/">도입 문의</a>
     </div>
@@ -464,7 +474,7 @@
           
           <li><a href="/services/">사업영역</a></li>
           
-          <li><a href="/nk-agent/">제품 소개</a></li>
+          <li><a href="/nk-ai/">제품 소개</a></li>
           
           <li><a href="/contact/">문의하기</a></li>
           
@@ -504,7 +514,7 @@
           
             <div class="social">
   
-    <a href="mailto:khk@we-nk.com" target="blank"><img src="/images/social/email.svg" title="Email" alt="Email" /></a>
+    <a href="mailto:khk@we-nk.com" target="_blank" rel="noopener noreferrer"><img src="/images/social/email.svg" title="Email" alt="Email" /></a>
   
 </div>
 
@@ -517,12 +527,11 @@
     </div>
   </div>
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js" integrity="sha384-xICYS6rIsARSX3k0YKfjEX+OFPqH6c1BHFyDy/Qu4MKRcQT39ngsWhuBOhoRcQl/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.js" integrity="sha384-Z8zwe4UlCA9xiPVMGPhmzBsPAEVtt/gabOsU+0A8Lf67I0MjHjP+UzNYng2CtJar" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
   <script>AOS.init({ duration: 600, once: true, offset: 80 });</script>
   <script type="text/javascript" src="/assets/js/scripts.js"></script>
-  <script type="text/javascript" src="/assets/js/protect.js"></script>
   
 </body>
 </html>

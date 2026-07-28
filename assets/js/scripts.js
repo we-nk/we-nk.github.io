@@ -162,15 +162,10 @@ if (menuTrigger && menuContainer) {
   swiper.autoplay.start();
 })();
 
-// Dark mode toggle
+// Dark mode toggle (initial theme is applied inline in <head> to avoid FOUC)
 ;(function () {
   var html = document.documentElement;
   var toggle = document.getElementById('dark-mode-toggle');
-  var stored = localStorage.getItem('theme');
-
-  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    html.setAttribute('data-theme', 'dark');
-  }
 
   if (toggle) {
     toggle.addEventListener('click', function () {
