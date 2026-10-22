@@ -126,6 +126,8 @@ if (menuTrigger && menuContainer) {
     slidesPerView: 1.3,
     spaceBetween: 0,
     loop: true,
+    // default minus 'button', so slides can be dragged on the video poster (a button)
+    focusableElements: 'input, select, option, textarea, video, label',
     autoplay: {
       delay: 6000,
       disableOnInteraction: false,
@@ -141,25 +143,30 @@ if (menuTrigger && menuContainer) {
     }
   });
 
-  // Video slides: autoplay continues unless user clicks to play
-  var videoPlaying = false;
-
-  // Detect clicks on video slides (user started watching)
-  document.querySelectorAll('.product-swiper .video-wrapper').forEach(function (vw) {
-    vw.addEventListener('click', function () {
-      videoPlaying = true;
+  // Video slides: poster click → play in place and stop autoplay
+  // (clicks inside a YouTube iframe never reach this page, so the poster is the only reliable signal)
+  document.querySelectorAll('.product-swiper .video-poster').forEach(function (poster) {
+    poster.addEventListener('click', function () {
+      var wrap = poster.parentElement;
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube.com/embed/' + wrap.getAttribute('data-youtube-id') + '?autoplay=1&rel=0&playsinline=1';
+      frame.title = wrap.getAttribute('data-title') || '';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      poster.hidden = true;
+      wrap.appendChild(frame);
       swiper.autoplay.stop();
     });
   });
 
-  // On slide change: resume autoplay (user moved away from video)
+  // On slide change: end playback (back to poster) and resume autoplay
   swiper.on('slideChangeTransitionEnd', function () {
-    videoPlaying = false;
+    document.querySelectorAll('.product-swiper .video-wrapper iframe').forEach(function (frame) {
+      frame.parentElement.querySelector('.video-poster').hidden = false;
+      frame.remove();
+    });
     swiper.autoplay.start();
   });
-
-  // Ensure autoplay starts on init (iframe can steal focus)
-  swiper.autoplay.start();
 })();
 
 // Dark mode toggle (initial theme is applied inline in <head> to avoid FOUC)
